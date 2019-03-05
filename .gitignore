@@ -1,0 +1,8 @@
+# default
+node_modules/
+.DS_Store
+.next
+
+# editors
+.vscode/
+.idea/

@@ -1,1 +1,1 @@
-export default () => <h1>Bandvote</h1>;
+export default () => <h2>Bandvote</h2>;

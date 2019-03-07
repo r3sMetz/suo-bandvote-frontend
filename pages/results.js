@@ -10,7 +10,7 @@ class Results extends React.Component {
     };
   }
 
-  componentDidMount() {
+  componentWillMount() {
     const bandsFromStorage = localStorage.getItem('suobands');
     // Build stage related Arrays
     if (bandsFromStorage) {
@@ -28,13 +28,13 @@ class Results extends React.Component {
     return (
       <div className="container">
         <h2>Hauptbühne</h2>
-        <ResultTable bands={hb} />
+        <ResultTable deiMam="string" bands={hb} />
 
         <h2>Club</h2>
-        <ResultTable bands={club} />
+        <ResultTable deiMam="string" bands={club} />
 
         <h3>Keine Bühne / Enthaltungen</h3>
-        <ResultTable bands={misc} />
+        <ResultTable deiMam="modda" bands={misc} />
       </div>
     );
   }

@@ -10,7 +10,6 @@ class ResultTable extends React.Component {
   }
 
   render() {
-    const bands = this.state.bands;
     return (
       <table>
         <thead>
@@ -21,7 +20,7 @@ class ResultTable extends React.Component {
           </tr>
         </thead>
         <tbody>
-          {bands.map((band, index) => {
+          {this.state.bands.map((band, index) => {
             const { overall, singer, quality } = band.rating;
             return (
               <tr key={index}>

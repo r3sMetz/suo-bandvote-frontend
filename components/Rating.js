@@ -1,20 +1,27 @@
 import PropTypes from 'prop-types';
 
 class Rating extends React.Component {
-  constructor() {
+  constructor(props) {
+    super(props);
     this.state = {
-      rating: this.props.rating
+      rating: props.rating
     };
   }
 
   changeValue = e => {
+    const { ratingChangeHandler, ratingProperty, ratingBand } = this.props;
+
+    // Set Component State
     const rating = parseInt(event.target.value);
     this.setState({ rating });
+
+    // Handle rating-change in parent-function
+    ratingChangeHandler(ratingBand, ratingProperty, rating);
   };
 
   render() {
     return (
-      <select onChange={changeValue}>
+      <select value={this.state.rating} onChange={this.changeValue}>
         <option value="0">0</option>
         <option value="1">1</option>
         <option value="2">2</option>
@@ -32,11 +39,17 @@ class Rating extends React.Component {
 }
 
 Rating.defaultProps = {
-  rating: 0
+  rating: 0,
+  ratingProperty: '',
+  ratingChangeHandler: () => null,
+  ratingBand: {}
 };
 
-Rating.PropTypes = {
-  rating: PropTypes.number.isRequired
+Rating.propTypes = {
+  rating: PropTypes.number.isRequired,
+  ratingProperty: PropTypes.string.isRequired,
+  ratingChangeHandler: PropTypes.func.isRequired,
+  ratingBand: PropTypes.object.isRequired
 };
 
 export default Rating;

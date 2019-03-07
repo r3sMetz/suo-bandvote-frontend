@@ -1,4 +1,5 @@
 import TableStyles from '../components/TableStyles';
+import Rating from '../components/Rating';
 
 class Index extends React.Component {
   constructor() {
@@ -14,6 +15,21 @@ class Index extends React.Component {
       this.setState({ bands: JSON.parse(bandsFromStorage) });
   }
 
+  changeRating = (band, property, newRatingValue) => {
+    band.rating[property] = newRatingValue;
+
+    this.rebuildBandArrayWithBand(band);
+  };
+
+  rebuildBandArrayWithBand = band => {
+    // Rebuild BandArray
+    const bands = this.state.bands;
+    bands[band.id] = band;
+    this.setState({ bands });
+
+    localStorage.setItem('suobands', JSON.stringify(this.state.bands));
+  };
+
   render() {
     const { bands } = this.state;
     return (
@@ -25,7 +41,7 @@ class Index extends React.Component {
               <th>Name</th>
               <th>Genre</th>
               <th>Links</th>
-              <th>Gesamteindruck</th>
+              <th>Gesamt</th>
               <th>Sänger</th>
               <th>Qualität</th>
             </tr>
@@ -43,9 +59,30 @@ class Index extends React.Component {
                     </>
                   ))}
                 </td>
-                <td>{band.rating.overall}</td>
-                <td>{band.rating.singer}</td>
-                <td>{band.rating.quality}</td>
+                <td>
+                  <Rating
+                    ratingChangeHandler={this.changeRating}
+                    ratingBand={band}
+                    ratingProperty="overall"
+                    rating={band.rating.overall}
+                  />
+                </td>
+                <td>
+                  <Rating
+                    ratingChangeHandler={this.changeRating}
+                    ratingBand={band}
+                    ratingProperty="singer"
+                    rating={band.rating.singer}
+                  />
+                </td>
+                <td>
+                  <Rating
+                    ratingChangeHandler={this.changeRating}
+                    ratingBand={band}
+                    ratingProperty="quality"
+                    rating={band.rating.quality}
+                  />
+                </td>
               </tr>
             ))}
           </tbody>

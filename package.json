@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "start_local": "next build && next start | open http://localhost:3000"
   },
   "repository": {
     "type": "git",

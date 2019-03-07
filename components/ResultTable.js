@@ -5,20 +5,27 @@ class ResultTable extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      bands: props.bands
+      bands: []
     };
   }
 
   componentDidMount() {
-    const bands = this.state.bands
-      .map(band => {
-        const { overall, singer, quality } = band.rating;
-        const result = overall + singer + quality;
-        return { ...band, result };
-      })
-      .sort(this.sortFunction);
+    const bandsFromStorage = localStorage.getItem('suobands');
 
-    this.setState({ bands });
+    // Filter and order Bands
+    if (bandsFromStorage) {
+      const allBands = JSON.parse(bandsFromStorage);
+      const filteredAndOrderedBands = allBands
+        .filter(band => band.stage === this.props.stage)
+        .map(band => {
+          const { overall, singer, quality } = band.rating;
+          const result = overall + singer + quality;
+          return { ...band, result };
+        })
+        .sort(this.sortFunction);
+
+      this.setState({ bands: filteredAndOrderedBands });
+    }
   }
 
   sortFunction = (a, b) => {
@@ -58,11 +65,11 @@ class ResultTable extends React.Component {
 
 // PropTypes + Default Props
 ResultTable.defaultProps = {
-  bands: []
+  stage: ''
 };
 
 ResultTable.propTypes = {
-  bands: PropTypes.array.isRequired
+  stage: PropTypes.string.isRequired
 };
 
 export default ResultTable;

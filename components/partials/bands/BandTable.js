@@ -1,6 +1,6 @@
 import TableStyles from '../../TableStyles';
 
-class Initialize extends React.Component {
+class BandTable extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -46,4 +46,4 @@ class Initialize extends React.Component {
   }
 }
 
-export default Initialize;
+export default BandTable;

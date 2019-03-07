@@ -1,5 +1,5 @@
 const TableStyles = props => (
-  <style jsx>{`
+  <style jsx="true">{`
     table {
       border-collapse: collapse;
       width: 100%;

@@ -1,4 +1,5 @@
 import TableStyles from '../../TableStyles';
+import { saveStorage } from '../../../utilities';
 
 class BandTable extends React.Component {
   constructor() {
@@ -13,11 +14,46 @@ class BandTable extends React.Component {
       this.setState({ bands: JSON.parse(localStorage.getItem('suobands')) });
   }
 
+  rebuildBandArrayWithBand = band => {
+    // Rebuild BandArray
+    const bands = this.state.bands;
+    bands[band.id] = band;
+    this.setState({ bands });
+
+    localStorage.setItem('suobands', JSON.stringify(this.state.bands));
+  };
+
+  addLink = band => {
+    const newLink = window.prompt('Link eingeben');
+    band.links.push(newLink);
+
+    this.rebuildBandArrayWithBand(band);
+  };
+
+  removeLink = (band, index) => {
+    if (window.confirm('Link entfernen?')) {
+      band.links.splice(index, 1);
+      this.rebuildBandArrayWithBand(band);
+    }
+  };
+
+  editGenre = band => {
+    const newGenre = window.prompt('Genre eingeben', band.genre);
+    band.genre = newGenre;
+
+    this.rebuildBandArrayWithBand(band);
+  };
+
   render() {
     const { bands } = this.state;
     return (
       <div className="container">
-        <h2>Bands bearbeiten</h2>
+        <h2>
+          Bands bearbeiten&nbsp;
+          <button onClick={() => saveStorage(localStorage.getItem('suobands'))}>
+            Sicherheitskopie anfertigen
+          </button>
+        </h2>
         {bands.length ? (
           <table>
             <thead>
@@ -31,8 +67,23 @@ class BandTable extends React.Component {
               {bands.map((band, index) => (
                 <tr key={index}>
                   <td>{band.name}</td>
-                  <td>Links</td>
-                  <td>Genre</td>
+                  <td>
+                    {band.links.map((link, index) => (
+                      <span key={index}>
+                        {link}&nbsp;
+                        <button onClick={() => this.removeLink(band, index)}>
+                          X
+                        </button>
+                        <br />
+                      </span>
+                    ))}
+                    <button onClick={() => this.addLink(band)}>Add</button>
+                  </td>
+                  <td>
+                    {band.genre}
+                    <br />
+                    <button onClick={() => this.editGenre(band)}>Edit</button>
+                  </td>
                 </tr>
               ))}
             </tbody>

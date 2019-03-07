@@ -1,6 +1,7 @@
 import App, { Container } from 'next/app';
 import Layout from '../components/Layout';
 import Meta from '../components/Meta';
+import GlobalStyles from '../components/GlobalStyles';
 
 class BandVotingApp extends App {
   render() {
@@ -8,6 +9,7 @@ class BandVotingApp extends App {
     return (
       <Container>
         <Meta />
+        <GlobalStyles />
         <Layout>
           <Component />
         </Layout>

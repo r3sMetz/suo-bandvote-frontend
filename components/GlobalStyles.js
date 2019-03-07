@@ -13,6 +13,12 @@ const GlobalStyles = () => (
     body {
       font-family: Roboto, Helvetica, sans-serif;
     }
+
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 15px;
+    }
   `}</style>
 );
 

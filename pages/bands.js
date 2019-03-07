@@ -1,3 +1,15 @@
-import { initialBands } from '../utilities';
+import BandTable from '../components/partials/bands/BandTable';
+import Initialize from '../components/partials/bands/Initialize';
 
-export default () => <h2>{initialBands.length}</h2>;
+class Bands extends React.Component {
+  render() {
+    return (
+      <>
+        <BandTable />
+        <Initialize />
+      </>
+    );
+  }
+}
+
+export default Bands;

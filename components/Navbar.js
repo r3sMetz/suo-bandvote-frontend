@@ -2,23 +2,25 @@ import Link from 'next/link';
 
 const Navbar = () => (
   <nav>
-    <h1>
-      <Link href="/">
-        <a>SUO Bandvoting</a>
-      </Link>
-    </h1>
-    <ul>
-      <li>
-        <Link href="/results">
-          <a>Ergebnisse</a>
+    <div className="container">
+      <h1>
+        <Link href="/">
+          <a>SUO Bandvoting</a>
         </Link>
-      </li>
-      <li>
-        <Link href="/bands">
-          <a>Bands</a>
-        </Link>
-      </li>
-    </ul>
+      </h1>
+      <ul>
+        <li>
+          <Link href="/results">
+            <a>Ergebnisse</a>
+          </Link>
+        </li>
+        <li>
+          <Link href="/bands">
+            <a>Bands</a>
+          </Link>
+        </li>
+      </ul>
+    </div>
     <NavbarStyling />
   </nav>
 );
@@ -26,9 +28,11 @@ const Navbar = () => (
 const NavbarStyling = () => (
   <style jsx>{`
     nav {
-      padding: 15px;
-      display: flex;
       background: grey;
+    }
+
+    .container {
+      display: flex;
       justify-content: space-between;
       align-items: center;
     }

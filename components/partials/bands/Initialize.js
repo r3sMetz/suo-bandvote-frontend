@@ -30,7 +30,8 @@ class Initialize extends React.Component {
             overall: 0,
             singer: 0,
             quality: 0
-          }
+          },
+          stage: 'Keine'
         };
         newBandObject.push(newBand);
       });

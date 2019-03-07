@@ -26,7 +26,7 @@ const Navbar = () => (
 );
 
 const NavbarStyling = () => (
-  <style jsx>{`
+  <style jsx="true">{`
     nav {
       background: grey;
     }

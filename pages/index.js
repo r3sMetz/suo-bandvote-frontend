@@ -1,5 +1,6 @@
 import TableStyles from '../components/TableStyles';
 import Rating from '../components/Rating';
+import SafetyButton from '../components/SafetyButton';
 
 class Index extends React.Component {
   constructor() {
@@ -34,7 +35,10 @@ class Index extends React.Component {
     const { bands } = this.state;
     return (
       <div className="container">
-        <h2>Alle Bands ({bands.length})</h2>
+        <h2>
+          Alle Bands ({bands.length})
+          <SafetyButton />
+        </h2>
         <table>
           <thead>
             <tr>

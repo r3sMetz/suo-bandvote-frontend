@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { saveStorage } from '../utilities';
 
 class Rating extends React.Component {
   constructor(props) {

@@ -1,5 +1,6 @@
 import TableStyles from '../../TableStyles';
 import { saveStorage } from '../../../utilities';
+import SafetyButton from '../../SafetyButton';
 
 class BandTable extends React.Component {
   constructor() {
@@ -50,9 +51,7 @@ class BandTable extends React.Component {
       <div className="container">
         <h2>
           Bands bearbeiten&nbsp;
-          <button onClick={() => saveStorage(localStorage.getItem('suobands'))}>
-            Sicherheitskopie anfertigen
-          </button>
+          <SafetyButton />
         </h2>
         {bands.length ? (
           <table>

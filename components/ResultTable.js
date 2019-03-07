@@ -9,6 +9,25 @@ class ResultTable extends React.Component {
     };
   }
 
+  componentDidMount() {
+    const bands = this.state.bands
+      .map(band => {
+        const { overall, singer, quality } = band.rating;
+        const result = overall + singer + quality;
+        return { ...band, result };
+      })
+      .sort(this.sortFunction);
+
+    this.setState({ bands });
+  }
+
+  sortFunction = (a, b) => {
+    if (a.result > b.result) return -1;
+    if (a.result < b.result) return 1;
+
+    return 0;
+  };
+
   render() {
     return (
       <table>

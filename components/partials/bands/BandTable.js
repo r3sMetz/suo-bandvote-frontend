@@ -1,5 +1,4 @@
 import TableStyles from '../../TableStyles';
-import { saveStorage } from '../../../utilities';
 import SafetyButton from '../../SafetyButton';
 
 class BandTable extends React.Component {

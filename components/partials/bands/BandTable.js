@@ -26,8 +26,8 @@ class Initialize extends React.Component {
               </tr>
             </thead>
             <tbody>
-              {bands.map(band => (
-                <tr>
+              {bands.map((band, index) => (
+                <tr key={index}>
                   <td>{band.name}</td>
                   <td>Links</td>
                   <td>Genre</td>

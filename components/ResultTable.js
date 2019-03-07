@@ -42,6 +42,7 @@ class ResultTable extends React.Component {
           <tr>
             <th>Platz</th>
             <th>Name</th>
+            <th>Genre</th>
             <th>Punkte</th>
           </tr>
         </thead>
@@ -52,6 +53,7 @@ class ResultTable extends React.Component {
               <tr key={index}>
                 <td>{index + 1}</td>
                 <td>{band.name}</td>
+                <td>{band.genre}</td>
                 <td>{overall + singer + quality}</td>
               </tr>
             );

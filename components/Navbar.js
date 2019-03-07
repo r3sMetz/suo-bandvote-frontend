@@ -31,7 +31,7 @@ const NavbarStyling = () => (
       background: grey;
     }
 
-    .container {
+    nav .container {
       display: flex;
       justify-content: space-between;
       align-items: center;

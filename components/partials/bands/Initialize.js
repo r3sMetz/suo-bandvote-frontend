@@ -24,7 +24,7 @@ class Initialize extends React.Component {
         const newBand = {
           id: index,
           name: band,
-          links: {},
+          links: [],
           rating: {
             overall: 0,
             singer: 0,

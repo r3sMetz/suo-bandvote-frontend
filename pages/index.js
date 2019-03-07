@@ -22,6 +22,11 @@ class Index extends React.Component {
     this.rebuildBandArrayWithBand(band);
   };
 
+  changeStage = (event, band) => {
+    band.stage = event.target.value;
+    this.rebuildBandArrayWithBand(band);
+  };
+
   rebuildBandArrayWithBand = band => {
     // Rebuild BandArray
     const bands = this.state.bands;
@@ -36,7 +41,7 @@ class Index extends React.Component {
     return (
       <div className="container">
         <h2>
-          Alle Bands ({bands.length})
+          Alle Bands ({bands.length})&nbsp;
           <SafetyButton />
         </h2>
         <table>
@@ -48,6 +53,7 @@ class Index extends React.Component {
               <th>Gesamt</th>
               <th>Sänger</th>
               <th>Qualität</th>
+              <th>Bühne</th>
             </tr>
           </thead>
           <tbody>
@@ -86,6 +92,16 @@ class Index extends React.Component {
                     ratingProperty="quality"
                     rating={band.rating.quality}
                   />
+                </td>
+                <td>
+                  <select
+                    value={band.stage}
+                    onChange={() => this.changeStage(event, band)}
+                  >
+                    <option value="Keine">Keine</option>
+                    <option value="HB">HB</option>
+                    <option value="Club">Club</option>
+                  </select>
                 </td>
               </tr>
             ))}

@@ -62,9 +62,11 @@ class Index extends React.Component {
                 <td>{band.name}</td>
                 <td>{band.genre}</td>
                 <td>
-                  {band.links.map(link => (
+                  {band.links.map((link, index) => (
                     <>
-                      {link}
+                      <a target="_blank" href={link}>
+                        Link {index + 1}
+                      </a>
                       <br />
                     </>
                   ))}

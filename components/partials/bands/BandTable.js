@@ -14,7 +14,7 @@ class Initialize extends React.Component {
   render() {
     const { bands } = this.state;
     return (
-      <div className="container">
+      <>
         <h2>Bands bearbeiten</h2>
         {bands.length ? (
           <table>
@@ -38,7 +38,7 @@ class Initialize extends React.Component {
         ) : (
           <p>Keine Bands vorhanden</p>
         )}
-      </div>
+      </>
     );
   }
 }

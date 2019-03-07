@@ -44,11 +44,11 @@ class Initialize extends React.Component {
   render() {
     const { bandsInitialized } = this.state;
     return (
-      <div className="container">
+      <>
         <button onClick={this.initBands}>
           {bandsInitialized ? 'Reset' : 'Init'}
         </button>
-      </div>
+      </>
     );
   }
 }

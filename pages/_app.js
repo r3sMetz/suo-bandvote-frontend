@@ -10,7 +10,6 @@ class BandVotingApp extends App {
         <Layout>
           <Component />
         </Layout>
-        <GlobalStyles />
       </Container>
     );
   }

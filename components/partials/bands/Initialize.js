@@ -22,6 +22,7 @@ class Initialize extends React.Component {
       // Build Band Array
       this.state.initialBands.forEach((band, index) => {
         const newBand = {
+          choosen: false,
           id: index,
           name: band,
           genre: 'Musik',

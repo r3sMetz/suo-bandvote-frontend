@@ -19,6 +19,11 @@ const Navbar = () => (
             <a>Bands</a>
           </Link>
         </li>
+        <li>
+          <Link href="/choice">
+            <a>Auswahl</a>
+          </Link>
+        </li>
       </ul>
     </div>
     <style jsx>{`
